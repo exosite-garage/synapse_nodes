@@ -1,5 +1,5 @@
 #==============================================================================
-# ot_masternode.py
+# node_master.py
 # SNAP Master Node code that interacts with other nodes on the SNAP network
 # to receive their data and forward it onto a serial-to-Internet gateway for
 # remote monitoring purposes.  This is part of an Exosite-compatible SNAP
@@ -36,8 +36,8 @@ from synapse.evalBase import *
 from synapse.switchboard import *
 from synapse.sysInfo import *
 
-NV_DEVICE_NAME_ID = 8       # The decice name is stored at this location
-DEVICE_NAME = 'MSTR'
+NV_DEVICE_NAME_ID = 8       # The device name is stored at this location
+DEVICE_NAME = '[NODE CIK HERE FROM EXOSITE]'   # Device name is its client interface key
 HEADER = '12345678'
 FOOTER = '87654321'
 NODE_PASSPHRASE = 'exositemasternode'

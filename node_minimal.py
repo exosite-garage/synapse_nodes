@@ -1,5 +1,5 @@
 #==============================================================================
-# ot_nodeminimal.py
+# node_minimal.py
 # Minimal SNAP Node code that allows the node to interact with SNAP network that
 # is configured to work with Exosite's gateway and remote monitoring interfaces.
 # This code expects there to be a master node somewhere in the mesh that
@@ -38,7 +38,7 @@
 from synapse.evalBase import *
 
 NV_DEVICE_NAME_ID = 8       # The device name is stored at this location
-DEVICE_NAME = 'MinimalNode' # Device name needs to match gateway table
+DEVICE_NAME = '[NODE CIK HERE FROM EXOSITE]' # Device name is its client interface key
 LOOP_PERIOD = 10            # Adjust this to report/take action faster or slower
 
 #==============================================================================
@@ -55,8 +55,8 @@ def runCustomCode():
 # Function called periodically to run custom code - add function calls/code
 # here that are specific to this node
 #------------------------------------------------------------------------------
-    #publish the data "hello" as the resource "helloworld"
-    publishNodeData("helloworld","hello")
+    #publish the data "hello" as resource "1"
+    publishNodeData("1","hello")
 
 #==============================================================================
 # Standard Node Code

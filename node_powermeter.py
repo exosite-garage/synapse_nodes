@@ -1,5 +1,5 @@
 #==============================================================================
-# ot_nodepowermeter.py
+# node_powermeter.py
 # SNAP Node code that monitors ADC inputs that are hooked up to current clamps
 # Used as a wireless power monitoring node.
 # Configured to work with Exosite's gateway and remote monitoring interfaces.
@@ -37,7 +37,7 @@
 from synapse.evalBase import *
 
 NV_DEVICE_NAME_ID = 8       # The device name is stored at this location
-DEVICE_NAME = 'PNL1'        # Device name needs to match gateway table
+DEVICE_NAME = '[NODE CIK HERE FROM EXOSITE]'        # Device name is its client interface key
 LOOP_PERIOD = 10            # Adjust this to report/take action faster or slower
 
 #==============================================================================
@@ -65,18 +65,18 @@ def runCustomCode():
       #multiply by 25 per step to get watts.  ADC1 is 220V, so we multiply by 50 
       #to get Watts
       value = 25 * getPowerValue(0) # Read Adc on GPIO 18
-      name = "P1_Outlets"
+      name = "1"
     elif 1 == sequence:
       value = 50 * getPowerValue(1) # Read Adc on GPIO 17
-      name = "P1_Lights"
+      name = "2"
     elif 2 == sequence:
       #our new test clamp outputs about 3.67 steps per amp (1 step = 0.27A).  it 
       #hooked to a 220v line, so watts = reading * 0.27 * 220 = reading * 60
       value = 60 * getPowerValue(2) # Read Adc on GPIO 16
-      name = "P1_Fans"
+      name = "3"
     elif 3 == sequence:
       value = 30 * getPowerValue(3) # Read Adc on GPIO 15
-      name = "P1_Misc"
+      name = "4"
     elif 4 == sequence:
       #CT248-M clamp is 33.3mA at 100A across a 100 ohm resistor.  Means it will
       #generate 3.3v (1024 ADC value) at 100A usage.  So, each count equals
@@ -84,7 +84,7 @@ def runCustomCode():
       #220V 3-phase power.  So, we can calculate wattage by ADCValue*0.0976*220,
       #or ADCValue * 21.48.
       value = 21.48 * getPowerValue(4) # Read Adc on GPIO 14
-      name = "P1_Phase1"
+      name = "5"
       
     publishNodeData(name,value)
     
