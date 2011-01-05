@@ -39,6 +39,8 @@ from synapse.evalBase import *
 NV_DEVICE_NAME_ID = 8       # The device name is stored at this location
 DEVICE_NAME = '[NODE CIK HERE FROM EXOSITE]'        # Device name is its client interface key
 LOOP_PERIOD = 10            # Adjust this to report/take action faster or slower
+NV_DEVICE_GROUP_ID = 5
+DEVICE_GROUP = 0x0003       # set to group 0x0002 (bit OR)
 
 #==============================================================================
 # Custom Node Code
@@ -143,6 +145,9 @@ def startupEvent():
     node_name = loadNvParam(NV_DEVICE_NAME_ID)
     if node_name != DEVICE_NAME: 
       saveNvParam(NV_DEVICE_NAME_ID,DEVICE_NAME)
+    group = loadNvParam(NV_DEVICE_GROUP_ID)
+    if group != DEVICE_GROUP:
+      saveNvParam(NV_DEVICE_GROUP_ID,DEVICE_GROUP)
     initProtoHw() # Intialize the proto board
     initCustomCode() # Initialize custom code
 
@@ -172,7 +177,7 @@ def publishNodeData(resource_name, resource_value):
 # onto the gateway for remote monitoring
 #------------------------------------------------------------------------------
     global node_name
-    mcastRpc(1, 10, "publishData",node_name,resource_name,resource_value)
+    mcastRpc(DEVICE_GROUP, 10, "publishData",node_name,resource_name,resource_value)
 
 #==============================================================================
 # SnappyGen Hooks

@@ -42,6 +42,8 @@ HEADER = '12345678'
 FOOTER = '87654321'
 NODE_PASSPHRASE = 'exositemasternode'
 GW_PASSPHRASE = 'exositegateway'
+NV_DEVICE_GROUP_ID = 5
+DEVICE_GROUP = 0x0003       # set to group 0x0002 (bit OR)
 
 #------------------------------------------------------------------------------
 def startupEvent():
@@ -50,6 +52,9 @@ def startupEvent():
     node_name = loadNvParam(NV_DEVICE_NAME_ID)
     if node_name != DEVICE_NAME: 
       saveNvParam(NV_DEVICE_NAME_ID,DEVICE_NAME)
+    group = loadNvParam(NV_DEVICE_GROUP_ID)
+    if group != DEVICE_GROUP:
+      saveNvParam(NV_DEVICE_GROUP_ID,DEVICE_GROUP)
     initUart(0, 38400)
     flowControl(0,False)
     stdinMode(1, False) # Char Mode, Echo Off
