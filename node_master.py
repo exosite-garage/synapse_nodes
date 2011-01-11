@@ -36,8 +36,8 @@ from synapse.evalBase import *
 from synapse.switchboard import *
 from synapse.sysInfo import *
 
-NV_DEVICE_NAME_ID = 8       # The device name is stored at this location
-DEVICE_NAME = '[NODE CIK HERE FROM EXOSITE]'   # Device name is its client interface key
+NV_DEVICE_NAME_ID = 8     # The device name is stored at this location
+DEVICE_NAME = '[NODE CIK HERE FROM EXOSITE PLATFORM]'   # Device name is its client interface key
 HEADER = '12345678'
 FOOTER = '87654321'
 NODE_PASSPHRASE = 'exositemasternode'
