@@ -38,10 +38,10 @@
 from synapse.evalBase import *
 
 NV_DEVICE_NAME_ID = 8       # The device name is stored at this location
-DEVICE_NAME = '[NODE CIK HERE FROM EXOSITE]' # Device name is its client interface key
+DEVICE_NAME = 'NODECIKHEREFROMEXOSITEPLATFORM' # Device name is its client interface key
 LOOP_PERIOD = 10            # Adjust this to report/take action faster or slower
 NV_DEVICE_GROUP_ID = 5
-DEVICE_GROUP = 0x0003       # set to group 0x0002 (bit OR)
+DEVICE_GROUP = 0x0003       # set to groups 0x0001 and 0x0002 (bit OR)
 
 #==============================================================================
 # Custom Node Code
@@ -57,8 +57,12 @@ def runCustomCode():
 # Function called periodically to run custom code - add function calls/code
 # here that are specific to this node
 #------------------------------------------------------------------------------
-    #publish the data "hello" as resource "1"
-	#note: some gateways can only handle 6 character names and values
+    #publish the data "hello" as resource alias "1"
+    #note: if resource alias "1" does not exist for the DEVICE_NAME cik above, 
+    #it will have to be created.  some gateways can auto-create the alias on the
+    #platform, while others (simpler ones) cannot and require the alias be 
+    #manually created through the web interface
+    #note: some gateways can only handle 6 character names and values
     publishNodeData("1","hello")
 
 #==============================================================================

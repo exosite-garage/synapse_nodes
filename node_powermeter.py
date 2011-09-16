@@ -37,10 +37,10 @@
 from synapse.evalBase import *
 
 NV_DEVICE_NAME_ID = 8       # The device name is stored at this location
-DEVICE_NAME = '[NODE CIK HERE FROM EXOSITE]'        # Device name is its client interface key
+DEVICE_NAME = 'NODECIKHEREFROMEXOSITEPLATFORM'        # Device name is its client interface key
 LOOP_PERIOD = 10            # Adjust this to report/take action faster or slower
 NV_DEVICE_GROUP_ID = 5
-DEVICE_GROUP = 0x0003       # set to group 0x0002 (bit OR)
+DEVICE_GROUP = 0x0003       # set to groups 0x0001 and 0x0002 (bit OR)
 
 #==============================================================================
 # Custom Node Code
@@ -59,7 +59,9 @@ def runCustomCode():
 #------------------------------------------------------------------------------
     global sequence
     #note - if name of publish source does not exactly match the data source
-    #name in Exosite Portals, a new data source will be created (if possible)
+    #name in Exosite Portals, a new data source will need to be created  to 
+    #match.  some gateways will be able to auto-create the data source, while
+    #other simpler gateways will need the data source to be manually created
     
     if 0 == sequence:
       #we are using dumb clamps that output about 1 step = 0.23A.  Max reading

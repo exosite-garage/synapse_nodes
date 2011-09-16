@@ -37,13 +37,13 @@ from synapse.switchboard import *
 from synapse.sysInfo import *
 
 NV_DEVICE_NAME_ID = 8     # The device name is stored at this location
-DEVICE_NAME = '[NODE CIK HERE FROM EXOSITE PLATFORM]'   # Device name is its client interface key
+DEVICE_NAME = 'NODECIKHEREFROMEXOSITEPLATFORM'   # Device name is its client interface key
 HEADER = '12345678'
 FOOTER = '87654321'
 NODE_PASSPHRASE = 'exositemasternode'
 GW_PASSPHRASE = 'exositegateway'
 NV_DEVICE_GROUP_ID = 5
-DEVICE_GROUP = 0x0003       # set to group 0x0002 (bit OR)
+DEVICE_GROUP = 0x0003       # set to groups 0x0001 and 0x0002 (bit OR)
 
 #------------------------------------------------------------------------------
 def startupEvent():
