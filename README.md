@@ -12,11 +12,11 @@ to a gateway connected to the master node's serial port.
 
 License is BSD, Copyright 2011, Exosite LLC (see LICENSE file)
 
---) Tested deployment of scripts with Synapse PORTAL version 2.4.17
---) Tested functionality on Synapse wireless node model RF100 (FW version 2.4.9)
---) Verified master node with gateways:
-  (1) https://github.com/exosite-garage/pc_serial_gateway
-  (2) Fluid Gateway, firmware "fluid_synapse_gateway" v2011-06-08
+--) Tested deployment of scripts with Synapse PORTAL version 2.4.17<br>
+--) Tested functionality on Synapse wireless node model RF100 (FW version 2.4.9)<br>
+--) Verified master node with gateways:<br>
+  (1) https://github.com/exosite-garage/pc_serial_gateway v2011-09-15<br>
+  (2) Fluid Gateway, firmware "fluid_synapse_gateway" v2011-06-08<br>
 
 For more information on Exosite API and examples, reference Exosite online 
 documentation at http://exosite.com/developers/documentation.
@@ -26,13 +26,13 @@ Quick Start
 ========================================
 (1) Get a node CIK for each node from your Exosite account.  Go to your Exosite
 account in Portals (https://portals.exosite.com) and add a new device using the
-following information:
-  Device Type: Generic
-  Device Timezone: ---> Select your timezone
-  Device Location: ---> Provide any descriptive location
-  Device Name: ---> Any name you want to provide
+following information:<br>
+  Device Type: Generic<br>
+  Device Timezone: ---> Select your timezone<br>
+  Device Location: ---> Provide any descriptive location<br>
+  Device Name: ---> Any name you want to provide<br>
 
-For additional documentation on adding a new device: 
+For additional documentation on adding a new device:<br>
 http://exosite.com/developers/documentation?cid=1009
 
 (2) Open the SNAP script in this project that you want to program to a SNAP
